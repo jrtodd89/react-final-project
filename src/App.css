@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+body {
+	font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Product List */
+
+/* .productContainer {
+	display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+} */
+
+.product {
+	display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.product img {
+	max-width: 200px;
+	width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.productInfo {
+	margin:24px
 }
 
-.App-link {
-  color: #61dafb;
+
+/* Header */
+
+header {
+	display: flex;
+	align-items: center;
+	border-bottom: 5px solid #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logoContainer, .headingContainer {
+	display:inline-block;
+}
+.logo {
+	padding:24px;
+	max-width: 100px;
+	cursor: pointer;
+}
+.headingContainer h1 {
+	font-family: 'Great Vibes', cursive;
+	color:#000
+}
+
+/* Main */
+
+main {
+	display: flex;
+}
+
+/* Sidebar */
+.btn {
+	border-radius: 0;
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+/* Footer */
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	background-color: #000;
+	color: #fff;
 }
