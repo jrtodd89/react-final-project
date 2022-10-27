@@ -21,10 +21,6 @@ const Main = styled.main`
 	min-height: 72.7vh;
 `
 
-var ghpages = require('gh-pages');
-
-ghpages.publish('dist', function(err) {});
-
 function App() {
 
 	const [cart, setCart] = useState([])
