@@ -1,59 +1,79 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { Routes, Route } from "react-router-dom";
+import styled from 'styled-components';
 
 import './App.css';
+
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
-import ProductList from './components/ProductList';
+import Home from './components/Home';
+import Products from './components/Products';
 import ProductDetails from './components/ProductDetails';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
+import NotFound from './components/NotFound';
+import { CartContext } from './components/CartContext';
 
-
+const Main = styled.main`
+	position:relative;
+	margin:0 auto;
+	max-width:960px;
+	min-height: 72.7vh;
+`
 function App() {
 
-
-	const [products, setProducts] = useState([])
-
-	const [category, setCategory] = useState('')
-
-	const fetchProductByCategory = async (category) => {
-		const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
-		const data = await response.json();
-		setProducts(data);
-		console.log(data);
-	}
-
-	useEffect(() => {
-		fetchProductByCategory();
-	},[category]);
+	const [cart, setCart] = useState([])
 
 	return (
 		<div className="App">
 
-			<Cart/>
+			<CartContext.Provider value={{
+				cart,
+				addToCart: (quantity, product) => {
+					const parsedQuantity = parseInt(quantity);
+					const newProduct = { product: product, quantity: parsedQuantity };
+					setCart([...cart, newProduct])
+					console.log(cart);
+				},
+				updateCart: (newData) => {
+					return setCart([...cart, newData]);
+				},
+				updateQuantity: (productID, newQuantity) => {
+					const updatedQuantity = cart?.map((cartItem) => {
+						const parsedQuantity = parseInt(newQuantity);
+						if (cartItem.product.id === productID) {
+							cartItem.quantity = parsedQuantity;
+						}
+						setCart([...cart]);
+					})
 
-			<Header />
+				},
+				removeFromCart: (productID) => {
+					const filteredCart = cart?.filter((cartItem) => {
+						return cartItem.product.id !== productID;
+					})
+					setCart(filteredCart);
+				},
+				emptyCart: () => {
+					setCart([]);
+				}
+			}}>
+				<Header />
 
-			<div onClick={() => {setCategory('jewelery')}}>Jewelery</div>
-			<div onClick={() => {setCategory('men\'s clothing')}}>Men's Clothing</div>
-			<div onClick={() => {setCategory('women\'s clothing')}}>Women's Clothing</div>
-			<div onClick={() => {setCategory('electronics')}}>Electronics</div>
+				<Main>
 
-			{products?.map((product) => {
-				return (product.title);
-			})}
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/products' element={<Products />} />
+						<Route path='/products/:id' exact strict element={<ProductDetails />} />
+						<Route path='/cart' element={<Cart />} />
+						<Route path='/checkout' element={<Checkout />} />
+						<Route path='*' element={<NotFound />} />
+					</Routes>
+				</Main>
 
-			<main>
-				<div>
-					<Sidebar />
-				</div>
-				<div>
-					<ProductDetails />
-					<ProductList />
-				</div>
-			</main>
-
-			<Footer />
+				<Footer />
+			</CartContext.Provider>
 		</div>
 	);
 }

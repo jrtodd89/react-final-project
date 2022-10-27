@@ -17,23 +17,12 @@ body {
 	display: flex;
 }
 
-.product img {
-	max-width: 200px;
-	width: 100%;
-}
-
 .productInfo {
 	margin:24px
 }
 
 
 /* Header */
-
-header {
-	display: flex;
-	align-items: center;
-	border-bottom: 5px solid #000;
-}
 
 .logoContainer, .headingContainer {
 	display:inline-block;
@@ -46,30 +35,4 @@ header {
 .headingContainer h1 {
 	font-family: 'Great Vibes', cursive;
 	color:#000
-}
-
-/* Main */
-
-main {
-	display: flex;
-}
-
-/* Sidebar */
-.btn {
-	border-radius: 0;
-	background-color: #000;
-	color: #fff;
-	cursor: pointer;
-}
-
-
-/* Footer */
-
-footer {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 24px;
-	background-color: #000;
-	color: #fff;
 }

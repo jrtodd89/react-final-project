@@ -29,12 +29,12 @@ export default function Sidebar(props) {
 				value={sidebarSearch}
 				onChange={handleChange}
 			/>
-			<select defaultValue={''} value={type} onChange={handleSelectChange}>
+			{/* <select defaultValue={''} onChange={handleSelectChange}>
 				<option>Men's Clothing</option>
 				<option>Women's Clothing</option>
 				<option>Jewelery</option>
 				<option>Electronics</option>
-			</select>
+			</select> */}
 			<button
 				type="submit"
 				className='btn'
