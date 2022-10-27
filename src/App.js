@@ -20,6 +20,11 @@ const Main = styled.main`
 	max-width:960px;
 	min-height: 72.7vh;
 `
+
+var ghpages = require('gh-pages');
+
+ghpages.publish('dist', function(err) {});
+
 function App() {
 
 	const [cart, setCart] = useState([])
