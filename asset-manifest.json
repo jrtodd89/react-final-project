@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-final-project/static/css/main.16fc7479.css",
+    "main.js": "/react-final-project/static/js/main.5747c91c.js",
+    "static/js/787.0fe84981.chunk.js": "/react-final-project/static/js/787.0fe84981.chunk.js",
+    "static/media/may_logo.jpg": "/react-final-project/static/media/may_logo.860daf3d306c3e44d217.jpg",
+    "static/media/may_dumb_sm.jpg": "/react-final-project/static/media/may_dumb_sm.df2d71a30a1fade89590.jpg",
+    "index.html": "/react-final-project/index.html",
+    "main.16fc7479.css.map": "/react-final-project/static/css/main.16fc7479.css.map",
+    "main.5747c91c.js.map": "/react-final-project/static/js/main.5747c91c.js.map",
+    "787.0fe84981.chunk.js.map": "/react-final-project/static/js/787.0fe84981.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16fc7479.css",
+    "static/js/main.5747c91c.js"
+  ]
+}
